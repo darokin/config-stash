@@ -6,7 +6,7 @@ Store Linux (i3wm) config files
  - shhh | shutdown now
  
  # i3wm
-  - AZERTY and QWERTY workspaces shortcuts
+- AZERTY and QWERTY workspaces shortcuts
   - screenshot shortcut
   - background (feh)
   
