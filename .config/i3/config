@@ -30,8 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec rxvt-unicode
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec rxvt-unicode
 
 # kill focused window
 bindsym $mod+Shift+a kill
@@ -187,8 +187,51 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        colors {
+            background #2f343f
+            statusline #2f343f
+            separator #4b5262
+
+            # colour of border, background, and text
+            focused_workspace       #2f343f #bf616a #d8dee8
+            active_workspace        #2f343f #ebcb8b #2f343f
+            inactive_workspace      #2f343f #2f343f #d8dee8
+            urgent_workspace        #2f343f #2f343f #d8dee8
+        }
         status_command i3status
 }
+
+# colour of border, background, text, indicator, and child_border
+client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.background           #2f343f
+
+
+## CUSTOM ##################
+
+for_window [class=".*"] border pixel 0
+for_window [floating] border normal
+
+# Cause Settings app to float above tiled windows
+floating_maximum_size -1 x -1
+for_window [class="floating_window"] floating enable
+for_window [window_role = "pop-up"] floating enable
+for_window [window_role = "bubble"] floating enable
+for_window [window_role = "dialog"] floating enable
+for_window [window_type = "dialog"] floating enable
+#for_window [class="mpv"] fullscreen disable, floating enable, resize set 300 200, sticky enable, move window to position 11 32
+# for_window [id="mpv"] floating enable
+# for_window [id="mpv"] resize set 960 540
+for_window [id="urxvt"] border pixel 0
+for_window [id="firefox" title="Firefox – Sharing Indicator"] floating enable
+for_window [id="firefox" title="Picture-in-Picture"] floating enable
+for_window [id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
+for_window [id="firefox" title="About Mozilla Firefox"] floating enable
+
+for_window [class=feh|Lxappearance|Lxtask|Pavucontrol] floating enable
 
 ##############################
 ## DAROKIN   add 21-03-2019 ##
@@ -226,6 +269,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # WallPaper
 exec --no-startup-id feh --bg-scale /home/darokin/Images/fedora_29_stock_4k-1920x1080.jpg
 
+# 2021 ###############################
 # For gnome-tweak-tool
 exec --no-startup-id gnome-settings-daemon
 exec compton
@@ -234,6 +278,14 @@ exec compton
 bindsym $mod+a exec rofi -show run -lines 20 -eh 1.3 -opacity "85" -bw 0 ### -font "System San Francisco Display 10"
 
 # AUTOMATIC STARTUP / WORKSPACES
+# Activity Watch
 exec awqt
-exec i3-sensible-terminal
+# Pulse audio systray
+exec pasystray
+# Volume media keys
+exec xfce4-volumed
+#exec xfce4-pulseaudio-plugin
+
+# Terminal
+# exec i3-sensible-terminal
 

@@ -133,3 +133,6 @@ export PATH="${PATH}:~/bin"
 #clavier US INTL
 setxkbmap us intl
 
+# Update window title with the last command (show running TUI app)
+trap 'printf "\033]0;%s\007" "${BASH_COMMAND//[^[:print:]]/}"' DEBUG
+
