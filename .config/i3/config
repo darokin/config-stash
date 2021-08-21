@@ -212,59 +212,18 @@ client.background           #2f343f
 
 ## CUSTOM ##################
 
-for_window [class=".*"] border pixel 0
-for_window [floating] border normal
 
 # Cause Settings app to float above tiled windows
 floating_maximum_size -1 x -1
 for_window [class="floating_window"] floating enable
 for_window [window_role = "pop-up"] floating enable
 for_window [window_role = "bubble"] floating enable
-for_window [window_role = "dialog"] floating enable
-for_window [window_type = "dialog"] floating enable
-#for_window [class="mpv"] fullscreen disable, floating enable, resize set 300 200, sticky enable, move window to position 11 32
-# for_window [id="mpv"] floating enable
-# for_window [id="mpv"] resize set 960 540
-for_window [id="urxvt"] border pixel 0
-for_window [id="firefox" title="Firefox – Sharing Indicator"] floating enable
-for_window [id="firefox" title="Picture-in-Picture"] floating enable
-for_window [id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
-for_window [id="firefox" title="About Mozilla Firefox"] floating enable
-
-for_window [class=feh|Lxappearance|Lxtask|Pavucontrol] floating enable
-
-##############################
-## DAROKIN   add 21-03-2019 ##
-##############################
-
-# Allow to do shortcut for the same workspace to go back to the previous one
-workspace_auto_back_and_forth yes
-
-# Pulse Audio controls
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-#Screenshots
-bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Images/screens/'
-
-# Sreen brightness controls
-# xbackligth passe pas : (fail)
-# >xbacklight -display "eDP-1-1" -dec 10
-#bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-#bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-# commande ok pr brightness
-# >xrandr --output "eDP-1-1" --brightness 0.8
-
-# Touchpad controls
-bindsym XF86TouchpadToggle exec synclient TouchpadOff=1 # toggle touchpad
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+for_window [title="POW3"] floating enable
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+for_window [class=".*"] border pixel 0
+for_window [floating] border normal
 
 # WallPaper
 exec --no-startup-id feh --bg-scale /home/darokin/Images/fedora_29_stock_4k-1920x1080.jpg
