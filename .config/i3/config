@@ -146,10 +146,19 @@ bindsym $mod+Shift+parenleft move container to workspace 5
 bindsym $mod+Shift+5 move container to workspace 5
 
 bindsym $mod+Shift+minus move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace 6
+
 bindsym $mod+Shift+egrave move container to workspace 7
+bindsym $mod+Shift+7 move container to workspace 7
+
 bindsym $mod+Shift+underscore move container to workspace 8
+bindsym $mod+Shift+8 move container to workspace 8
+
 bindsym $mod+Shift+ccedilla move container to workspace 9
+bindsym $mod+Shift+9 move container to workspace 9
+
 bindsym $mod+Shift+agrave move container to workspace 10
+bindsym $mod+Shift+10 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -187,17 +196,6 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        colors {
-            background #2f343f
-            statusline #2f343f
-            separator #4b5262
-
-            # colour of border, background, and text
-            focused_workspace       #2f343f #bf616a #d8dee8
-            active_workspace        #2f343f #ebcb8b #2f343f
-            inactive_workspace      #2f343f #2f343f #d8dee8
-            urgent_workspace        #2f343f #2f343f #d8dee8
-        }
         status_command i3status
 }
 
@@ -218,7 +216,29 @@ floating_maximum_size -1 x -1
 for_window [class="floating_window"] floating enable
 for_window [window_role = "pop-up"] floating enable
 for_window [window_role = "bubble"] floating enable
+
+
 for_window [title="POW3"] floating enable
+
+
+for_window [class="sun-awt-X11-XFramePeer"] floating enable 
+for_window [class="sun-awt-X11-XDialogPeer"] floating enable
+for_window [class="Processing"] floating enable
+
+for_window [title="Pill3Drotate"] floating enable
+for_window [title="neuroticasocialclub_01"] floating enable
+for_window [title="hecaton_01"] floating enable
+for_window [title="Cropper"] floating enable
+for_window [title="PlatoJap800x600"] floating enable
+for_window [title="WinIcon3D_916"] floating enable
+for_window [title="SquidGame01"] floating enable
+for_window [title="GlitchCube01"] floating enable
+for_window [title="CMYKcubematrix01"] floating enable
+for_window [title="AlarmClock01"] floating enable
+for_window [title="AsciiRender01"] floating enable
+for_window [title="AsciiRender02"] floating enable
+for_window [title="PolyhedraRing02"] floating enable
+
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -239,12 +259,17 @@ bindsym $mod+a exec rofi -show run -lines 20 -eh 1.3 -opacity "85" -bw 0 ### -fo
 # AUTOMATIC STARTUP / WORKSPACES
 # Activity Watch
 exec awqt
+# Wifi systray
+exec nm-applet
 # Pulse audio systray
 exec pasystray
 # Volume media keys
 exec xfce4-volumed
 #exec xfce4-pulseaudio-plugin
+# Snapfly (launcher)
+exec --no-start-up-id snapfly
 
 # Terminal
-# exec i3-sensible-terminal
+exec rxvt-unicode
+exec i3-sensible-terminal
 
